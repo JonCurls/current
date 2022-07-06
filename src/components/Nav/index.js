@@ -13,6 +13,7 @@ function Nav({handlePageChange, activeNav}){
 
             <a  onClick={() => handlePageChange('home')} className={activeNav === 'home' ? 'active' : ''} ><RiNumber1/></a>
            <a  onClick={() => handlePageChange('cards')} className={activeNav === 'cards' ? 'active' : ''}><RiNumber2/></a>
+           <a  onClick={() => handlePageChange('create')} className={activeNav === 'create' ? 'active' : ''}><RiNumber3/></a>
   
             
         </nav>
