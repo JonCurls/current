@@ -4,7 +4,7 @@ import currentLogo from '../../Assets/Images/current.png';
 
 function Header() {
     return (
-        <section class="headerSection" id="header">
+        <div class="headerSection" id="header">
             <div className="container">
                 <div className='header'>
                     <div className='logoImg'>
@@ -18,7 +18,7 @@ function Header() {
 
 
 
-        </section>
+        </div>
     )
 }
 export default Header;
