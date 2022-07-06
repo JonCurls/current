@@ -1,5 +1,5 @@
 import React from 'react';
-import './card.css';
+import './cards.css';
 
 const card = [
     {
@@ -20,7 +20,7 @@ function Cards(){
                     return( <article key={id} className='cardItem'>
                         <h3>{title}</h3>
                         <div className='cardItem-btn'>
-                        <a href={Link} className='btn'>Link</a>
+                        <a href={link} className='btn'>Link</a>
                         </div>
                     </article>
                     )
