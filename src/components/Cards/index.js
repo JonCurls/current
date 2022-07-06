@@ -6,6 +6,7 @@ const card = [
         id: 1,
         link: 'google.com',
         title: 'First Card',
+        description: 'a summary of the card'
     }
 ]
 
@@ -16,9 +17,10 @@ function Cards(){
 
         <div className='container cardContainer'>
             {
-                card.map(({id, link, title}) => {
+                card.map(({id, link, title, description}) => {
                     return( <article key={id} className='cardItem'>
                         <h3>{title}</h3>
+                        <h4>{description}</h4>
                         <div className='cardItem-btn'>
                         <a href={link} className='btn'>Link</a>
                         </div>
