@@ -7,24 +7,60 @@ const card = [
         link: 'google.com',
         title: 'First Card',
         description: 'a summary of the card'
+    },
+    {
+        id: 2,
+        link: 'google.com',
+        title: 'First Card',
+        description: 'a summary of the card'
+    },
+    {
+        id: 3,
+        link: 'google.com',
+        title: 'First Card',
+        description: 'a summary of the card'
+    },
+    {
+        id: 4,
+        link: 'google.com',
+        title: 'First Card',
+        description: 'a summary of the card'
+    },
+    {
+        id: 5,
+        link: 'google.com',
+        title: 'First Card',
+        description: 'a summary of the card'
+    },
+    {
+        id: 6,
+        link: 'google.com',
+        title: 'First Card',
+        description: 'a summary of the card'
     }
 ]
 
 function Cards(){
     return(
         <section id="cards">
-        <h5>My Cards</h5>
+        <h2>My Cards</h2>
 
         <div className='container cardContainer'>
             {
                 card.map(({id, link, title, description}) => {
-                    return( <article key={id} className='cardItem'>
+                    return(
+                        <div className='mapContainer'>
                         <h3>{title}</h3>
-                        <h4>{description}</h4>
-                        <div className='cardItem-btn'>
-                        <a href={link} className='btn'>Link</a>
+                        <div className='cardContent'>
+                        
+                        <article key={id} className='cardItem'>    
+                        <h4 className='cardItem'>{description}</h4>
+                        <div className='cardItem cardItem-btn'>
+                        <a href={link} className='btn cardItem'>Link</a>
                         </div>
                     </article>
+                    </div>
+                    </div>
                     )
                 })
             }
