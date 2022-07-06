@@ -4,8 +4,8 @@ import currentLogo from '../../Assets/Images/current.png';
 
 function Header() {
     return (
-        <div class="headerSection" id="header">
-            <div className="container">
+        <div className='headerSection' id="header">
+            <div className="container headerContainer">
                 <div className='header'>
                     <div className='logoImg'>
                         <img src={currentLogo} alt="" />
