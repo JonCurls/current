@@ -8,10 +8,10 @@ function Landing({handlePageChange, activeNav}) {
       <h5>Welcome!</h5>
       <h2>Log in or create an account!</h2>
       <div className="container buttonContainer">
-        <button type="submit"  onClick={() => handlePageChange('login')} className={activeNav === 'login' ? 'active' : ''}>
+        <button type="submit"  onClick={() => handlePageChange('login')} className=" {activeNav === 'login' ? 'active' : ''} btn btn-primary" >
           Log in
         </button>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit"  onClick={() => handlePageChange('register')} className=" {activeNav === 'register' ? 'active' : ''} btn btn-primary">
           Sign Up
         </button>
       </div>
