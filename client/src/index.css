@@ -5,6 +5,8 @@ body {
   color: var(--color-white);
   line-height: 1.7;;
   background-image: url(../src/Assets/Images/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 code {
