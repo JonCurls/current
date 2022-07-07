@@ -5,18 +5,23 @@ import Nav from './components/Nav'
 import './App.css';
 import Cards from './components/Cards';
 import Create from './components/Create';
+import Login from './components/Login';
 
 function App() {
   const [activeNav, setActiveNav] = useState('home');
   const renderPage = () => {
     if (activeNav === 'home') {
-      return <Landing></Landing>;
+      return <Landing activeNav={activeNav}
+      handlePageChange={handlePageChange}></Landing>;
     }
     if (activeNav === 'cards') {
       return <Cards></Cards>
     }
     if (activeNav === 'create') {
       return <Create></Create>
+    }
+    if (activeNav === 'login') {
+      return <Login></Login>
     }
 
 
