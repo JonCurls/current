@@ -6,6 +6,7 @@ import './App.css';
 import Cards from './components/Cards';
 import Create from './components/Create';
 import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
   const [activeNav, setActiveNav] = useState('home');
@@ -16,6 +17,9 @@ function App() {
     }
     if (activeNav === 'cards') {
       return <Cards></Cards>
+    }
+    if (activeNav === 'register') {
+      return <Register></Register>
     }
     if (activeNav === 'create') {
       return <Create></Create>
