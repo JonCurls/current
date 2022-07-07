@@ -10,7 +10,12 @@ const Register = () => {
     // set state for form validation
     const [validated] = useState(false);
     // set state for alert
-    const [showAlert, setShowAlert] = useState(false)
+    const [showAlert, setShowAlert] = useState(false);
+
+    const handleInputChange = (event) => {
+        const {name, value } = event.target;
+        setUserFormData({ ...userFormData, [name]: value });
+    } 
 
     return(
         <form>
