@@ -16,7 +16,7 @@ class AuthService {
         return !!token && !this.isTokenExpired(token); //handwaiving here
     }
 
-    //check if token is expired
+    // check if token is expired
     isTokenExpired(token) {
         try {
             const decoded = decode(token);
@@ -26,6 +26,24 @@ class AuthService {
         } catch (err) {
             return false;
         }
+    }
+
+    getToken() {
+        //retrieves user token from localstorage
+        return localStorage.getItem('id_token');
+    }
+
+    login(idToken) {
+        //Saves user token to localStorage 
+        localStorage.setItem('id_token', idToken);
+        window.location.assign('/');
+    }
+
+    logout() {
+        //Clear user token and profile data from localStorage
+        localStorage.removeItem('id_token');
+        // this will reload the page and reset the state of the application
+        window.location.assign('/');
     }
 }
 
