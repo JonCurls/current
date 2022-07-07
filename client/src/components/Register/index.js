@@ -1,7 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import './register.css';
+import {useMutation} from '@apollo/client';
+import { ADD_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
-function Register(){
+const Register = () => {
+    // set initial form state
+    const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+    
     return(
         <form>
             <input name="email" type="email" id="email" placeholder="your email">
