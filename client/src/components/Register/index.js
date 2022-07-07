@@ -15,7 +15,10 @@ const Register = () => {
     const handleInputChange = (event) => {
         const {name, value } = event.target;
         setUserFormData({ ...userFormData, [name]: value });
-    } 
+    };
+
+    const [ addUser , { error, data } ] = useMutation(ADD_USER);
+    console.log(error , data );
 
     return(
         <form>
