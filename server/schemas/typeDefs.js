@@ -31,7 +31,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addCard(title: String!, link: String!, description: String!): Card
-    deleteCard(id: ID): User
+    deleteCard(id: ID!): User
   }
 `;
 
