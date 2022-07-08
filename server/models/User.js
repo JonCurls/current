@@ -21,10 +21,12 @@ const userSchema = new Schema(
       required: true,
       minLength: 5,
     },
-    cards: {
-      type: Schema.Types.ObjectId,
-      ref: "Card",
-    },
+    cards: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Card",
+      }
+    ],
   },
   {
     toJSON: {
