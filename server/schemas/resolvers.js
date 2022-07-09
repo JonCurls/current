@@ -53,9 +53,9 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in');
     },
 
-    deleteCard: async (parent, { id }, context) => {
+    deleteCard: async (parent, { cardId }, context) => {
       if (context.user) {
-        return await Card.findByIdAndRemove({ _id: id });
+        return await Card.findByIdAndRemove({ _id: cardId });
       }
       throw new AuthenticationError('You need to be logged in');
     },
