@@ -5,7 +5,7 @@ const cardSchema = new Schema(
     title: {
       type: String,
       required: true,
-      unique: true,
+      // unique: true,
     },
     link: {
       type: String,
