@@ -19,9 +19,7 @@ const Nav = () => {
     };
     return (
                 <div className="container">
-                <Link to="/">
-                    <h1>Deep Thoughts</h1>
-                </Link>
+                
 
                 <nav className="text-center">
                     {Auth.loggedIn() ? (

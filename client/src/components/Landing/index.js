@@ -2,7 +2,7 @@ import React from "react";
 import "./landing.css";
 import { Link } from 'react-router-dom';
 
-function Landing({handlePageChange, activeNav}) {
+function Landing() {
   return (
     
     <section id="landing">

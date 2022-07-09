@@ -66,7 +66,7 @@ function App() {
               />
             </Routes>
           </div>
-  
+          <Nav></Nav>
         </div>
       </Router>
     </ApolloProvider>
