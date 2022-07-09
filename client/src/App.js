@@ -1,46 +1,59 @@
 import React, { useState } from 'react';
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+//apollo stuff
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+
 import Header from './components/Header';
 import Landing from './components/Landing';
 import Nav from './components/Nav'
-import './App.css';
+
 import Cards from './components/Cards';
 import Create from './components/Create';
 import Login from './components/Login';
 import Register from './components/Register';
 
 function App() {
-  const [activeNav, setActiveNav] = useState('home');
-  const renderPage = () => {
-    if (activeNav === 'home') {
-      return <Landing activeNav={activeNav}
-      handlePageChange={handlePageChange}></Landing>;
-    }
-    if (activeNav === 'cards') {
-      return <Cards></Cards>
-    }
-    if (activeNav === 'register') {
-      return <Register></Register>
-    }
-    if (activeNav === 'create') {
-      return <Create></Create>
-    }
-    if (activeNav === 'login') {
-      return <Login></Login>
-    }
-
-
-  }
- const handlePageChange = (page) => setActiveNav(page);
   return (
-    <>
-      <Header></Header>
-      <Nav activeNav={activeNav}
-       handlePageChange={handlePageChange}></Nav>
-      {renderPage()}
-
-    </>
+    <ApolloProvider client={client}>
+      <Router>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <Nav />
+          <div className="container">
+            <Routes>
+              <Route 
+                path="/" 
+                element={<Landing />} 
+              />
+              <Route 
+                path="/login" 
+                element={<Login />} 
+              />
+              <Route 
+                path="/signup" 
+                element={<Register />} 
+              />
+              <Route 
+                path="/profile" 
+                element={<Cards />} 
+              />
+            </Routes>
+          </div>
+          
+        </div>
+      </Router>
+    </ApolloProvider>
   );
 }
+
 
 export default App;
 
