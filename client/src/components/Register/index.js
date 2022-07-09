@@ -17,7 +17,7 @@ const Register = () => {
         const { name, value } = event.target;
         setUserFormData({ ...userFormData, [name]: value });
     };
-    //addUser mutation converted to const, error data will not be used hence console.log
+    //addUser mutation converted to const, error+data will not be used hence console.log
     const [addUser, { error, data }] = useMutation(ADD_USER);
     console.log(error, data);
 
@@ -37,11 +37,12 @@ const Register = () => {
             });
 
             if (!data) {
-                throw new Error('oopsie woopsie the the code did a fucky wucky uwu');
+                throw new Error(error);
             }
 
             Auth.login(data.addUser.token);
         } catch (err) {
+            console.log('oopsie woopsie the the code did a fucky wucky uwu');
             console.error(err);
             setShowAlert(true);
         }
@@ -66,7 +67,7 @@ const Register = () => {
                     <Form.Label htmlFor='email'>Email</Form.Label>
                     <Form.Control
                         type='email'
-                        placeholder='Your email address'
+                        placeholder='Your Email Address'
                         name='email'
                         onChange={handleInputChange}
                         value={userFormData.email}
@@ -79,7 +80,7 @@ const Register = () => {
                     <Form.Label htmlFor='password'>Password</Form.Label>
                     <Form.Control
                         type='password'
-                        placeholder='Your password'
+                        placeholder='Your Password'
                         name='password'
                         onChange={handleInputChange}
                         value={userFormData.password}
@@ -95,11 +96,7 @@ const Register = () => {
                 </Button>
             </Form>
         </>
-
-
     );
-
-
 };
 
 export default Register;
