@@ -66,14 +66,7 @@ function App() {
               />
             </Routes>
           </div>
-          <nav>
-
-            <a href="/" >Click</a>
-           <a href="/profile" >Click</a>
-           
   
-            
-        </nav>
         </div>
       </Router>
     </ApolloProvider>
