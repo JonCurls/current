@@ -6,8 +6,8 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     //get single user by id
-    user: async (parent, { username }) => {
-      return User.findOne({ username })
+    user: async (parent, { email }) => {
+      return User.findOne({ email })
       .select('-__V -password')
       .populate('cards')
     },
@@ -41,7 +41,7 @@ const resolvers = {
 
     addCard: async (parent, args, context) => {
       if (context.user) {
-        const card = await Card.create({ ...args, username: context.user.username });
+        const card = await Card.create({ ...args, email: context.user.email });
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
