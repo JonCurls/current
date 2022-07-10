@@ -1,4 +1,9 @@
 import React from 'react';
+import {Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap'
+//import {useMutation} from '@apollo/client';
+import { useQuery, useMutation } from "@apollo/client";
+import {GET_ME} from "../../utils/queries";
+import Auth from '../../utils/auth';
 import './cards.css';
 
 const card = [
@@ -41,7 +46,19 @@ const card = [
 ]
 
 function Cards(){
+    
+        const { loading, data } = useQuery(GET_ME)
+        console.log(loading, data)
+
+        const userData = data?.me || [];
+
+         // use this to determine if `useEffect()` hook needs to run again
+        const userDataLength = Object.keys(userData).length;
+
+        const [ deleteCard, { error } ] = useMutation(REMOVE_CARD);
+
     return(
+        <Container>
         <section id="cards">
         <h2>My Cards</h2>
 
@@ -66,6 +83,7 @@ function Cards(){
             }
         </div>
         </section>
+        </Container>
     )
 }
 

@@ -40,7 +40,7 @@ function Login() {
         throw new Error(error);
       }
       console.log(data);
-      Auth.login(data.loginUser.token);
+      Auth.login(data.login.token);
     } catch (err) {
       console.log("Urgent! Your login attempt was cringe! Pls try again :3");
       console.error(err);
