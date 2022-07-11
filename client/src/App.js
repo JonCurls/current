@@ -13,7 +13,7 @@ import { setContext } from '@apollo/client/link/context';
 
 import Header from './components/Header';
 import Landing from './components/Landing';
-import Nav from './components/Nav'
+import Navigation from './components/Navigation'
 
 import Cards from './components/Cards';
 import Create from './components/Create';
@@ -64,9 +64,13 @@ function App() {
                 path="/profile" 
                 element={<Cards />} 
               />
+              <Route 
+                path="/create" 
+                element={<Create />} 
+              />
             </Routes>
           </div>
-          <Nav></Nav>
+          <Navigation></Navigation>
         </div>
       </Router>
     </ApolloProvider>
