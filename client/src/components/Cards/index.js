@@ -8,88 +8,14 @@ import { removeCardId } from "../../utils/localStorage";
 import { REMOVE_CARD } from "../../utils/mutations";
 import "./cards.css";
 
-//overall not necesarry
-// const cardSeed = [
-//     {
-//         id: 1,
-//         link: 'google.com',
-//         title: 'First Card',
-//         description: 'a summary of the card'
-//     },
-//     {
-//         id: 2,
-//         link: 'google.com',
-//         title: 'First Card',
-//         description: 'a summary of the card'
-//     },
-//     {
-//         id: 3,
-//         link: 'google.com',
-//         title: 'First Card',
-//         description: 'a summary of the card'
-//     },
-//     {
-//         id: 4,
-//         link: 'google.com',
-//         title: 'First Card',
-//         description: 'a summary of the card'
-//     },
-//     {
-//         id: 5,
-//         link: 'google.com',
-//         title: 'First Card',
-//         description: 'a summary of the card'
-//     },
-//     {
-//         id: 6,
-//         link: 'google.com',
-//         title: 'First Card',
-//         description: 'a summary of the card'
-//     }
-// ]
-
 function Cards() {
   const { loading, data } = useQuery(GET_ME);
   console.log(loading, data);
 
-  const userData = data?.me || [];
+  const userData = data?.me || {};
 
   // use this to determine if `useEffect()` hook needs to run again
   const userDataLength = Object.keys(userData).length;
-  useEffect(() => {
-    const getUserData = async () => {
-      try {
-        const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-        if (token) {
-          return;
-        }
-
-        //TODO this definetly needs to be a gql
-        const getMe = (token) => {
-          return fetch("/api/users/me", {
-            headers: {
-              "Content-Type": "application/json",
-              authorization: `Bearer ${token}`,
-            },
-          });
-        };
-
-        const response = await getMe(token);
-
-        if (!response.ok) {
-          throw new Error("Something went wrong!");
-        }
-
-        const user = await response.json();
-        console.log(user);
-        //setUserData(user); < THis just creates an infinite recursive function
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    getUserData();
-  }, [userDataLength]);
 
   const [deleteCard, { error }] = useMutation(REMOVE_CARD);
   console.log(error);
@@ -128,9 +54,9 @@ function Cards() {
       <Container>
         <section id="cards">
           <h2>
-            {userData.savedCards.length
-              ? `Viewing ${userData.savedCards.length} saved ${
-                  userData.savedCards.length === 1 ? "card" : "cards"
+            {userData?.cards?.length
+              ? `Viewing ${userData.cards.length} saved ${
+                  userData.cards.length === 1 ? "card" : "cards"
                 }:`
               : "You have no saved cards!"}
           </h2>
@@ -138,17 +64,17 @@ function Cards() {
             {/* changed CardColumns to a classname */}
             <div className="container cardContainer">
               {/* {id, link, title, description} */}
-              {userData.savedCards.map((card) => {
+              {userData?.cards?.map((card) => {
                 return (
-                  <Card key={card.cardId} border="dark">
+                  <Card key={card._id} border="dark">
                     {/*ONLY USE IF WE USE IMAGES {card.image ? <Card.Img src={card.image} alt={`The cover for ${card.title}`} variant="top" /> : null} */}
                     <Card.Body>
                       <Card.Title>{card.title}</Card.Title>
-                      <p className="small">Link: {card.title}</p>
+                      <p className="small">Link: {card.link}</p>
                       <Card.Text>{card.description}</Card.Text>
                       <Button
                         className="btn-block btn-danger"
-                        onClick={() => handleDeleteCard(card.cardId)}
+                        onClick={() => handleDeleteCard(card._id)}
                       >
                         Delete this Card!
                       </Button>
