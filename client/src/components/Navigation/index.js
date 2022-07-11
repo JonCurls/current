@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Login from '../Login';
 import Register from '../Register';
 import './navigation.css';
+import {BsCreditCard2FrontFill} from "react-icons/bs"
+import {AiFillPlusCircle} from "react-icons/ai"
 
 import Auth from '../../utils/auth';
 const Navigation = () => {
@@ -17,8 +19,9 @@ const Navigation = () => {
               <nav className="text-center">
                   {Auth.loggedIn() ? (
                       <>
-                          <Link to="/cards">My Cards</Link>
-                          <a href="/create" onClick={logout}>
+                          <Link to="/cards"><BsCreditCard2FrontFill/></Link>
+                          <Link to="/create"><AiFillPlusCircle/></Link>
+                          <a href="/" onClick={logout}>
                               Logout
                           </a>
                       </>
