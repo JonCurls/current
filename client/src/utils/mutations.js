@@ -23,3 +23,17 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const REMOVE_CARD = gql`
+  mutation deleteCard($cardId: String!) {
+    deleteCard(bookId: $cardId) {
+      _id
+      email
+      savedCards {
+        description
+        title
+        link
+      }  
+    }
+  }
+`;
