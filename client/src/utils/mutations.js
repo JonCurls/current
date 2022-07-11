@@ -39,7 +39,7 @@ export const REMOVE_CARD = gql`
 `;
 
 export const SAVE_CARD = gql`
-  mutation AddCard($title: String!, $link: String!, $description: String!) {
+  mutation addCard($title: String!, $link: String!, $description: String!) {
     addCard(title: $title, link: $link, description: $description) {
       _id
       title

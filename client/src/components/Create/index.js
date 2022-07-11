@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Col, Form, Button, Card, Row } from "react-bootstrap";
 //removed jumbotron and cardcolumns from bootstrap
 import { useMutation } from "@apollo/client";
 import { SAVE_CARD } from "../../utils/mutations";
@@ -13,7 +13,9 @@ function Create() {
   // create state for holding returned api data
   const [createdCards, setCreatedCards] = useState([]);
   // create state for holding our input field data
-  const [createInput, setCreateInput] = useState("");
+  const [createTitle, setCreateTitle] = useState("");
+  const [createLink, setCreateLink] = useState("");
+  const [createDescription, setCreateDescription] = useState("");
 
   // create state to hold saved cardId values
   const [savedCardIds, setSavedCardIds] = useState(getSavedCardIds());
@@ -27,33 +29,29 @@ function Create() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    if (!createInput) {
+    if (!createTitle && !createDescription && !createLink) {
       return false;
     }
 
-    // try {
-    //   const response = await createGqlCard(createInput);
+    try {
+        const {data} = await saveCard({
+          variables: { 
+            title: createTitle, 
+            link: createLink, 
+            description: createDescription 
+        },
+        });
+        console.log(data);
 
-    //   if (!response.ok) {
-    //     throw new Error("something went wrong!");
-    //   }
-
-    //   const { items } = await response.json();
-
-    //   const cardData = items.map((card) => ({
-    //     cardId: card.id,
-    //     link: card.link || ["No title to display"],
-    //     title: card.title,
-    //     description: card.description,
-    //     // image: card.volumeInfo.imageLinks?.thumbnail || '',
-    //   }));
-    //   setCreatedCards(cardData);
-    //   setCreateInput("");
-    // } catch (err) {
-    //   console.error(err);
-    // } commented out to run without errors to test
-
-    console.log(handleFormSubmit);
+        if (error) {
+          throw new Error("something went wrong!");
+        }
+  
+        // if card successfully saves to user's account, save card id to state
+        setSavedCardIds([...savedCardIds, data.addCard._id]);
+      } catch (err) {
+        console.error(err);
+      }
   };
 
   const [saveCard, { error, data }] = useMutation(SAVE_CARD);
@@ -94,12 +92,12 @@ function Create() {
         <Container>
           <h1>Create your Cards!</h1>
           <Form onSubmit={handleFormSubmit}>
-            <Form.Row>
+            <Row>
               <Col xs={12} md={8}>
                 <Form.Control
                   name="title"
-                  value={createInput}
-                  onChange={(e) => setCreateInput(e.target.value)}
+                  value={createTitle}
+                  onChange={(e) => setCreateTitle(e.target.value)}
                   type="text"
                   size="lg"
                   placeholder="Title your card"
@@ -108,8 +106,8 @@ function Create() {
               <Col xs={12} md={8}>
                 <Form.Control
                   name="link"
-                  value={createInput}
-                  onChange={(e) => setCreateInput(e.target.value)}
+                  value={createLink}
+                  onChange={(e) => setCreateLink(e.target.value)}
                   type="text"
                   size="lg"
                   placeholder="Link your Card"
@@ -118,8 +116,8 @@ function Create() {
               <Col xs={12} md={8}>
                 <Form.Control
                   name="description"
-                  value={createInput}
-                  onChange={(e) => setCreateInput(e.target.value)}
+                  value={createDescription}
+                  onChange={(e) => setCreateDescription(e.target.value)}
                   type="text"
                   size="lg"
                   placeholder="Describe your Card"
@@ -130,7 +128,7 @@ function Create() {
                   Submit Search
                 </Button>
               </Col>
-            </Form.Row>
+            </Row>
           </Form>
         </Container>
       </div>
@@ -182,7 +180,7 @@ function Create() {
 
 export default Create;
 
-{
+
   /* <section id="createCard">
 <h5>Create a card!</h5>
 <h2>Fill in the form to create a card</h2>
@@ -196,4 +194,4 @@ export default Create;
     </form>
 </div>
 </section> */
-}
+

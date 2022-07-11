@@ -61,7 +61,7 @@ function App() {
                 element={<Register />} 
               />
               <Route 
-                path="/profile" 
+                path="/cards" 
                 element={<Cards />} 
               />
               <Route 
