@@ -19,7 +19,7 @@
     width: 40%;
 }
 .cardContainer>div h3 {
-    border-bottom: 4px solid var(--color-primary);
+    border-bottom: 4px solid var(--color-primary-variant);
     color: var(--color-primary);
     margin-bottom: 2rem;
     text-align: center;

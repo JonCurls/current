@@ -4,7 +4,9 @@ body {
   font-family: 'Poppins', sans-serif;
   color: var(--color-white);
   line-height: 1.7;;
-  background-image: url(../src/Assets/Images/background.jpg);
+  background-image: url(../src/Assets/Images/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 code {
@@ -21,12 +23,12 @@ code {
   text-decoration: none;
 }
 :root {
-  --color-bg: #85dcb8;
-  --color-bg-variant: #41b3a3;
-  --color-primary: #e27d60;
-  --color-primary-variant: #4d94ff;
+  --color-bg: #000000;
+  --color-bg-variant: #181818;
+  --color-primary: #2CCCC3;
+  --color-primary-variant: #5626C4;
   --color-white: #fff;
-  --color-light:	#808080;
+  --color-light:	#00458B;
   --smoothTrans: all 400ms ease;
   --container-width-lg: 75%;
   --container-width-md: 86%;
@@ -39,6 +41,9 @@ html {
 
 ::-webkit-scrollbar{
   display: none;
+}
+::placeholder{
+  color: var(--color-primary)
 }
 
 /* Generic Styling */
@@ -61,7 +66,7 @@ section{
 }
 section > h2, section > h5 {
   text-align: center;
-  color: var(--color-light);
+  color: var(--color-primary);
 }
 
 section > h2 {
@@ -84,11 +89,11 @@ a:hover {
 .btn{
   width: max-content;
   display: inline-block;
-  color: var(--color-primary);
+  color: var(--color-primary-variant);
   padding: 0.75rem 1.2rem;
   border-radius: 0.4rem;
   cursor: pointer;
-  border:1px solid var(--color-primary);
+  border:1px solid var(--color-primary-variant);
   transition: var(--smoothTrans);
 }
 .btn:hover {

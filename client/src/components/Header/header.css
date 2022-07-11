@@ -7,3 +7,18 @@
     
     
 }
+
+@media screen and (max-width: 1024px) {
+    .logoImg{
+        width: 20rem;
+    }
+  }
+  
+  /* other devices (phones) */
+  
+  @media screen and (max-width: 600px) {
+    .logoImg img{
+        margin-right: 10rem;
+    }
+
+  }

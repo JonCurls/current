@@ -4,12 +4,12 @@ const bcrypt = require("bcrypt");
 //mongoose User schema
 const userSchema = new Schema(
   {
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-    },
+    // username: {
+    //   type: String,
+    //   required: true,
+    //   unique: true,
+    //   trim: true,
+    // },
     email: {
       type: String,
       required: true,
@@ -21,10 +21,12 @@ const userSchema = new Schema(
       required: true,
       minLength: 5,
     },
-    cards: {
-      type: Schema.Types.ObjectId,
-      ref: "Card",
-    },
+    cards: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Card",
+      }
+    ],
   },
   {
     toJSON: {
