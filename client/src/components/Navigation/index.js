@@ -5,6 +5,7 @@ import Register from '../Register';
 import './navigation.css';
 import {BsCreditCard2FrontFill} from "react-icons/bs"
 import {AiFillPlusCircle} from "react-icons/ai"
+import { AiFillDelete } from "react-icons/ai";
 
 import Auth from '../../utils/auth';
 const Navigation = () => {
@@ -21,6 +22,7 @@ const Navigation = () => {
                       <>
                           <Link to="/cards"><BsCreditCard2FrontFill/></Link>
                           <Link to="/create"><AiFillPlusCircle/></Link>
+                          <Link to="/delete"><AiFillDelete/></Link>
                           <a href="/" onClick={logout}>
                               Logout
                           </a>
