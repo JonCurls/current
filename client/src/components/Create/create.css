@@ -1,6 +1,9 @@
 #create{
-    margin-top: 20rem;
+    margin-top: 10rem;
 
+}
+#create h1{
+    color: var(--color-primary-variant);
 }
 .container.createContainer{
     width: 58%;
@@ -8,6 +11,9 @@
     grid-template-columns: 30% 58%;
     gap: 12%;
 
+}
+.formElement{
+    margin-top: 1rem;
 }
 
 /*form styling*/
@@ -24,4 +30,15 @@ input, textarea{
     border: 2px solid var(--color-primary);
     resize: none;
     color: var(--color-white);
+}
+/*Other Devices (Tablet)*/
+@media screen and (max-width: 800px) {
+    .formElement{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 800px) {
+    .formElement{
+        width: 75%;
+    }
 }

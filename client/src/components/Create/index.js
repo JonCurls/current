@@ -87,13 +87,14 @@ function Create() {
   };
   return (
     <>
-      <div className="text-light bg-dark Jumbotron">
-        {/* removed fluid changed Jumbotron to a classname */}
-        <Container>
+
+      <section id="create">
+        {/* removed jumbotron and bootstrap */}
+
           <h1>Create your Cards!</h1>
-          <Form onSubmit={handleFormSubmit}>
+          <form onSubmit={handleFormSubmit}>
             <Row>
-              <Col xs={12} md={8}>
+              <Col className="formElement">
                 <Form.Control
                   name="title"
                   value={createTitle}
@@ -103,7 +104,7 @@ function Create() {
                   placeholder="Title your card"
                 />
               </Col>
-              <Col xs={12} md={8}>
+              <Col className="formElement">
                 <Form.Control
                   name="link"
                   value={createLink}
@@ -113,7 +114,7 @@ function Create() {
                   placeholder="Link your Card"
                 />
               </Col>
-              <Col xs={12} md={8}>
+              <Col className="formElement">
                 <Form.Control
                   name="description"
                   value={createDescription}
@@ -123,21 +124,17 @@ function Create() {
                   placeholder="Describe your Card"
                 />
               </Col>
-              <Col xs={12} md={4}>
-                <Button
-                  className="btn btn-primary"
-                  type="submit"
-                  variant="success"
-                  size="lg"
-                >
+
+              <Col className="formElement">
+                <Button className="btn btn-primary" type="submit" variant="success" size="lg">
+
                   Submit Card
                 </Button>
               </Col>
             </Row>
-          </Form>
-        </Container>
-      </div>
-      {/* </Jumbotron> */}
+          </form>
+      </section>
+      {/* removed jumbotron */}
 
       <Container>
         <h2>
