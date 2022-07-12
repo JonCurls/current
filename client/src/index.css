@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@300&family=Staatliches&display=swap');
 body {
   background: var(--color-bg);
-  background-image: url(../src/Assets/Images/background.jpg);
   font-family: 'Poppins', sans-serif;
   color: var(--color-white);
   line-height: 1.7;;
