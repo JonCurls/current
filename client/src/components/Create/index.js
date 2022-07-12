@@ -34,24 +34,24 @@ function Create() {
     }
 
     try {
-        const {data} = await saveCard({
-          variables: { 
-            title: createTitle, 
-            link: createLink, 
-            description: createDescription 
+      const { data } = await saveCard({
+        variables: {
+          title: createTitle,
+          link: createLink,
+          description: createDescription,
         },
-        });
-        console.log(data);
+      });
+      console.log(data);
 
-        if (error) {
-          throw new Error("something went wrong!");
-        }
-  
-        // if card successfully saves to user's account, save card id to state
-        setSavedCardIds([...savedCardIds, data.addCard._id]);
-      } catch (err) {
-        console.error(err);
+      if (error) {
+        throw new Error("something went wrong!");
       }
+
+      // if card successfully saves to user's account, save card id to state
+      setSavedCardIds([...savedCardIds, data.addCard._id]);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const [saveCard, { error, data }] = useMutation(SAVE_CARD);
@@ -87,9 +87,10 @@ function Create() {
   };
   return (
     <>
+
       <section id="create">
         {/* removed jumbotron and bootstrap */}
-        
+
           <h1>Create your Cards!</h1>
           <form onSubmit={handleFormSubmit}>
             <Row>
@@ -123,8 +124,10 @@ function Create() {
                   placeholder="Describe your Card"
                 />
               </Col>
+
               <Col className="formElement">
                 <Button className="btn btn-primary" type="submit" variant="success" size="lg">
+
                   Submit Card
                 </Button>
               </Col>
