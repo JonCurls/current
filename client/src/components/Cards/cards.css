@@ -54,6 +54,10 @@
     margin-top: 2rem;
     
 }
+.btn-card {
+   height: 75px;
+    width: 100px;
+}
   /* tablets */
   @media screen and (max-width: 1200px) {
     .cardContainer{
