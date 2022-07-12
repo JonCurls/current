@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@300&family=Staatliches&display=swap');
 body {
   background: var(--color-bg);
+  background-image: url(../src/Assets/Images/background.jpg);
   font-family: 'Poppins', sans-serif;
   color: var(--color-white);
   line-height: 1.7;;
-  background-image: url(../src/Assets/Images/background.png);
+  
   background-size: cover;
-  background-repeat: no-repeat;
+  
 
 
 }
@@ -27,10 +28,13 @@ code {
 :root {
   --color-bg: #000000;
   --color-bg-variant: #181818;
+  --color-bg-variant-light: #585858;
   --color-primary: #2CCCC3;
   --color-primary-variant: #5626C4;
   --color-white: #fff;
   --color-light:	#00458B;
+  --color-card: #189AB4;
+  --color-card-gradient: #D4F1F4;
   --smoothTrans: all 400ms ease;
   --container-width-lg: 75%;
   --container-width-md: 86%;

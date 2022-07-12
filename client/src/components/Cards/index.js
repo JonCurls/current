@@ -68,7 +68,7 @@ function Cards() {
               {/* {id, link, title, description} */}
               {userData?.cards?.map((card) => {
                 return (
-                  <Card key={card._id} border="dark">
+                  <div className="cardObject" key={card._id} border="dark">
                     {/*ONLY USE IF WE USE IMAGES {card.image ? <Card.Img src={card.image} alt={`The cover for ${card.title}`} variant="top" /> : null} */}
                     <Card.Body>
                       <h3 className="cardItem">{card.title}</h3>
@@ -78,7 +78,7 @@ function Cards() {
                         onClick={() => handleDeleteCard(card._id)}><AiFillDelete/></Button>
                       {/*<h4 className="cardItem">{card.description}</h4>*/}
                     </Card.Body>
-                  </Card>
+                  </div>
                 );
               })}
             </div>
