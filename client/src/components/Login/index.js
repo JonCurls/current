@@ -43,7 +43,7 @@ function Login() {
             console.log(data);
             Auth.login(data.login.token);
         } catch (err) {
-            console.log('Urgent! Your login attempt was cringe! Pls try again :3');
+            console.log('There was an error with your login! Please try again!');
             console.error(err);
             setShowAlert(true);
         }
