@@ -6,6 +6,8 @@ import { GET_ME } from "../../utils/queries";
 import Auth from "../../utils/auth.js";
 import { removeCardId } from "../../utils/localStorage";
 import { REMOVE_CARD } from "../../utils/mutations";
+import { AiFillDelete } from "react-icons/ai";
+import { BiLinkExternal } from "react-icons/bi";
 import "./cards.css";
 
 function Cards() {
@@ -60,7 +62,7 @@ function Cards() {
                 }:`
               : "You have no saved cards!"}
           </h2>
-          <div className="CardColumns">
+          <div className="cardColumns">
             {/* changed CardColumns to a classname */}
             <div className="container cardContainer">
               {/* {id, link, title, description} */}
@@ -69,17 +71,18 @@ function Cards() {
                   <Card key={card._id} border="dark">
                     {/*ONLY USE IF WE USE IMAGES {card.image ? <Card.Img src={card.image} alt={`The cover for ${card.title}`} variant="top" /> : null} */}
                     <Card.Body>
-                      <Card.Title>{card.title}</Card.Title>{" "}
-                      <a href={card.link} className="btn cardItem">
-                        Click me
+                      <h3 className="cardItem">{card.title}</h3>
+                      <a href={card.link} className="btn btn-primary">
+                        <BiLinkExternal />
                       </a>
-                      <Card.Text>{card.description}</Card.Text>
+
                       <Button
-                        className="btn-block btn-danger"
+                        className="btn cardItem btn-delete"
                         onClick={() => handleDeleteCard(card._id)}
                       >
-                        Delete this Card!
+                        <AiFillDelete />
                       </Button>
+                      {/*<h4 className="cardItem">{card.description}</h4>*/}
                     </Card.Body>
                   </Card>
                 );

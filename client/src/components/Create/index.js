@@ -124,7 +124,7 @@ function Create() {
                 />
               </Col>
               <Col xs={12} md={4}>
-                <Button type="submit" variant="success" size="lg">
+                <Button className="btn btn-primary" type="submit" variant="success" size="lg">
                   Submit Card
                 </Button>
               </Col>
@@ -154,7 +154,7 @@ function Create() {
                       disabled={savedCardIds?.some(
                         (savedCardId) => savedCardId === card.cardId
                       )}
-                      className="btn-block btn-info"
+                      className="btn btn-primary"
                       onClick={() => handleSaveCard(card.cardId)}
                     >
                       {savedCardIds?.some(

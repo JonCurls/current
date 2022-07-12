@@ -90,6 +90,7 @@ function Login() {
                 <Button
                     disabled={!(userFormData.email && userFormData.password)}
                     type='submit'
+                    className="btn btn-primary"
                     variant='success'>
                     Submit
                 </Button>
