@@ -87,9 +87,10 @@ function Create() {
   };
   return (
     <>
+
       <section id="create">
         {/* removed jumbotron and bootstrap */}
-        
+
           <h1>Create your Cards!</h1>
           <form onSubmit={handleFormSubmit}>
             <Row>
@@ -123,8 +124,10 @@ function Create() {
                   placeholder="Describe your Card"
                 />
               </Col>
+
               <Col className="formElement">
                 <Button className="btn btn-primary" type="submit" variant="success" size="lg">
+
                   Submit Card
                 </Button>
               </Col>
