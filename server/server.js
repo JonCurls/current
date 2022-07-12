@@ -23,13 +23,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Serve up static assets
-
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/public")));
+  app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public"));
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 //create new instance of an Apollo server with the GraphQL schema
