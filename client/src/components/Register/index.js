@@ -91,6 +91,7 @@ const Register = () => {
                 <Button //!(userformdata.username && cut)
                     disabled={!(userFormData.email && userFormData.password)}
                     type='submit'
+                    className="btn btn-primary"
                     variant='success'>
                     Submit
                 </Button>
