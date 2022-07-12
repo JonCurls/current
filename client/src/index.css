@@ -5,8 +5,10 @@ body {
   color: var(--color-white);
   line-height: 1.7;;
   background-image: url(../src/Assets/Images/background.png);
-  background-repeat: no-repeat;
   background-size: cover;
+  background-repeat: no-repeat;
+
+
 }
 
 code {
@@ -106,7 +108,13 @@ a:hover {
   background: var(--color-primary);
   color: var(--color-bg);
 }
-
+.btn-delete {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+.btn-delete:hover {
+  color: red;
+}
 img {
   display: block;
   width: 100%;

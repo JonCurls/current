@@ -6,7 +6,7 @@
 .cardContainer{
     grid-gap: 2rem;
     display: grid;
-    gap: 2rem;
+    gap: 5rem;
     grid-template-columns: 1fr 1fr;
     width: 50%;
 }
@@ -46,12 +46,25 @@
     display: flex;
     gap: 1rem;
     flex-direction: column;
+    margin-top: 2rem;
+    
 }
+  /* tablets */
+  @media screen and (max-width: 1200px) {
+    .cardContainer{
+    gap: 5rem;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 1rem;
+    }
+
+  }
   /* other devices (phones) */
   
   @media screen and (max-width: 700px) {
     .cardContainer{
-    gap: 7rem;
+    gap: 5rem;
+    grid-template-columns: 1fr;
+    
     }
 
   }
