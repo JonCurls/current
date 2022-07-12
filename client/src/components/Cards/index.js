@@ -23,6 +23,7 @@ function Cards() {
   // create function that accepts the card"s mongo _id value as param and deletes the card from the database
   const handleDeleteCard = async (cardId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
+    console.log(error);
 
     if (!token) {
       return false;
@@ -35,12 +36,14 @@ function Cards() {
 
       if (!response) {
         throw new Error("something went wrong!");
+        
       }
 
       // upon success, remove card"s id from localStorage
       removeCardId(cardId);
     } catch (err) {
       console.error(err);
+      console.log(error);
     }
   };
 
