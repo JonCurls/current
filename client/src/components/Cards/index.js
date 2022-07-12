@@ -70,7 +70,7 @@ function Cards() {
                     {/*ONLY USE IF WE USE IMAGES {card.image ? <Card.Img src={card.image} alt={`The cover for ${card.title}`} variant="top" /> : null} */}
                     <Card.Body>
                       <Card.Title>{card.title}</Card.Title>
-                      <p className="small">Link: {card.link}</p>
+                      <a href={card.link} className='btn cardItem'>Click me</a>
                       <Card.Text>{card.description}</Card.Text>
                       <Button
                         className="btn-block btn-danger"
