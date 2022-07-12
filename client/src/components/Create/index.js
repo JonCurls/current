@@ -34,24 +34,24 @@ function Create() {
     }
 
     try {
-        const {data} = await saveCard({
-          variables: { 
-            title: createTitle, 
-            link: createLink, 
-            description: createDescription 
+      const { data } = await saveCard({
+        variables: {
+          title: createTitle,
+          link: createLink,
+          description: createDescription,
         },
-        });
-        console.log(data);
+      });
+      console.log(data);
 
-        if (error) {
-          throw new Error("something went wrong!");
-        }
-  
-        // if card successfully saves to user's account, save card id to state
-        setSavedCardIds([...savedCardIds, data.addCard._id]);
-      } catch (err) {
-        console.error(err);
+      if (error) {
+        throw new Error("something went wrong!");
       }
+
+      // if card successfully saves to user's account, save card id to state
+      setSavedCardIds([...savedCardIds, data.addCard._id]);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const [saveCard, { error, data }] = useMutation(SAVE_CARD);
@@ -87,8 +87,8 @@ function Create() {
   };
   return (
     <>
-      <div fluid className="text-light bg-dark Jumbotron">
-        {/* changed Jumbotron to a classname */}
+      <div className="text-light bg-dark Jumbotron">
+        {/* removed fluid changed Jumbotron to a classname */}
         <Container>
           <h1>Create your Cards!</h1>
           <Form onSubmit={handleFormSubmit}>
@@ -124,7 +124,12 @@ function Create() {
                 />
               </Col>
               <Col xs={12} md={4}>
-                <Button className="btn btn-primary" type="submit" variant="success" size="lg">
+                <Button
+                  className="btn btn-primary"
+                  type="submit"
+                  variant="success"
+                  size="lg"
+                >
                   Submit Card
                 </Button>
               </Col>
