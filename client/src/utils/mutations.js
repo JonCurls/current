@@ -25,7 +25,7 @@ export const LOGIN_USER = gql`
 `;
 
 export const REMOVE_CARD = gql`
-  mutation deleteCard($cardId: String!) {
+  mutation deleteCard($cardId: ID!) {
     deleteCard(cardId: $cardId) {
       _id
       email
