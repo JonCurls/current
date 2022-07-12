@@ -6,6 +6,7 @@ export const GET_ME = gql`
       _id
       email
       cards {
+        _id
         title
         link
         description

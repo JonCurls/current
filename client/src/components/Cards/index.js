@@ -69,8 +69,7 @@ function Cards() {
                   <Card key={card._id} border="dark">
                     {/*ONLY USE IF WE USE IMAGES {card.image ? <Card.Img src={card.image} alt={`The cover for ${card.title}`} variant="top" /> : null} */}
                     <Card.Body>
-                      <Card.Title>{card.title}</Card.Title>
-                      <a href={card.link} className='btn cardItem'>Click me</a>
+                      <Card.Title>{card.title}</Card.Title>                      <a href={card.link} className='btn cardItem'>Click me</a>
                       <Card.Text>{card.description}</Card.Text>
                       <Button
                         className="btn-block btn-danger"
