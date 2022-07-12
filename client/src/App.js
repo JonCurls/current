@@ -19,6 +19,7 @@ import Cards from './components/Cards';
 import Create from './components/Create';
 import Login from './components/Login';
 import Register from './components/Register';
+import Delete from './components/Delete';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -67,6 +68,10 @@ function App() {
               <Route 
                 path="/create" 
                 element={<Create />} 
+              />
+              <Route 
+                path="/delete" 
+                element={<Delete />} 
               />
             </Routes>
           </div>

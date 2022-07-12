@@ -8,9 +8,9 @@ import { removeCardId } from "../../utils/localStorage";
 import { REMOVE_CARD } from "../../utils/mutations";
 import { AiFillDelete } from "react-icons/ai";
 import { BiLinkExternal } from "react-icons/bi";
-import "./cards.css";
+import "./delete.css";
 
-function Cards() {
+function Delete() {
   const { loading, data } = useQuery(GET_ME);
   console.log(loading, data);
 
@@ -25,7 +25,6 @@ function Cards() {
   // create function that accepts the card"s mongo _id value as param and deletes the card from the database
   const handleDeleteCard = async (cardId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-    console.log(error);
 
     if (!token) {
       return false;
@@ -38,14 +37,12 @@ function Cards() {
 
       if (!response) {
         throw new Error("something went wrong!");
-        
       }
 
       // upon success, remove card"s id from localStorage
       removeCardId(cardId);
     } catch (err) {
       console.error(err);
-      console.log(error);
     }
   };
 
@@ -60,8 +57,9 @@ function Cards() {
         <section id="cards">
           <h2>
             {userData?.cards?.length
-              ? `Viewing ${userData.cards.length} saved ${userData.cards.length === 1 ? "card" : "cards"
-              }:`
+              ? `Viewing ${userData.cards.length} saved ${
+                  userData.cards.length === 1 ? "card" : "cards"
+                }:`
               : "You have no saved cards!"}
           </h2>
           <div className="cardColumns">
@@ -74,16 +72,16 @@ function Cards() {
                     {/*ONLY USE IF WE USE IMAGES {card.image ? <Card.Img src={card.image} alt={`The cover for ${card.title}`} variant="top" /> : null} */}
                     <Card.Body>
                       <h3 className="cardItem">{card.title}</h3>
-                      <a href={card.link} className="btn btn-primary btn-card">
-                        <BiLinkExternal style={{
-                          position: 'relative',
-                          top: '20px',
-                          height: '40px',
-                          width: '100px',
-                        }} />
+                      <a href={card.link} className="btn btn-primary">
+                        <BiLinkExternal />
                       </a>
 
-
+                      <Button
+                        className="btn cardItem btn-delete"
+                        onClick={() => handleDeleteCard(card._id)}
+                      >
+                        <AiFillDelete />
+                      </Button>
                       {/*<h4 className="cardItem">{card.description}</h4>*/}
                     </Card.Body>
                   </div>
@@ -98,6 +96,6 @@ function Cards() {
   );
 }
 
-export default Cards;
+export default Delete;
 
 

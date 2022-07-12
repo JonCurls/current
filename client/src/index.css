@@ -4,9 +4,11 @@ body {
   font-family: 'Poppins', sans-serif;
   color: var(--color-white);
   line-height: 1.7;;
-  background-image: url(../src/Assets/Images/background.png);
-  background-repeat: no-repeat;
+  
   background-size: cover;
+  
+
+
 }
 
 code {
@@ -25,10 +27,13 @@ code {
 :root {
   --color-bg: #000000;
   --color-bg-variant: #181818;
+  --color-bg-variant-light: #585858;
   --color-primary: #2CCCC3;
   --color-primary-variant: #5626C4;
   --color-white: #fff;
   --color-light:	#00458B;
+  --color-card: #189AB4;
+  --color-card-gradient: #D4F1F4;
   --smoothTrans: all 400ms ease;
   --container-width-lg: 75%;
   --container-width-md: 86%;
@@ -106,7 +111,13 @@ a:hover {
   background: var(--color-primary);
   color: var(--color-bg);
 }
-
+.btn-delete {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+.btn-delete:hover {
+  color: red;
+}
 img {
   display: block;
   width: 100%;

@@ -42,7 +42,7 @@ const Register = () => {
 
             Auth.login(data.addUser.token);
         } catch (err) {
-            console.log('oopsie woopsie the the code did a fucky wucky uwu');
+            console.log('Something went wrong! Please try again.');
             console.error(err);
             setShowAlert(true);
         }
@@ -91,6 +91,7 @@ const Register = () => {
                 <Button //!(userformdata.username && cut)
                     disabled={!(userFormData.email && userFormData.password)}
                     type='submit'
+                    className="btn btn-primary"
                     variant='success'>
                     Submit
                 </Button>

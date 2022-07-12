@@ -34,24 +34,24 @@ function Create() {
     }
 
     try {
-        const {data} = await saveCard({
-          variables: { 
-            title: createTitle, 
-            link: createLink, 
-            description: createDescription 
+      const { data } = await saveCard({
+        variables: {
+          title: createTitle,
+          link: createLink,
+          description: createDescription,
         },
-        });
-        console.log(data);
+      });
+      console.log(data);
 
-        if (error) {
-          throw new Error("something went wrong!");
-        }
-  
-        // if card successfully saves to user's account, save card id to state
-        setSavedCardIds([...savedCardIds, data.addCard._id]);
-      } catch (err) {
-        console.error(err);
+      if (error) {
+        throw new Error("something went wrong!");
       }
+
+      // if card successfully saves to user's account, save card id to state
+      setSavedCardIds([...savedCardIds, data.addCard._id]);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const [saveCard, { error, data }] = useMutation(SAVE_CARD);
@@ -87,13 +87,14 @@ function Create() {
   };
   return (
     <>
-      <div fluid className="text-light bg-dark Jumbotron">
-        {/* changed Jumbotron to a classname */}
-        <Container>
+
+      <section id="create">
+        {/* removed jumbotron and bootstrap */}
+
           <h1>Create your Cards!</h1>
-          <Form onSubmit={handleFormSubmit}>
+          <form onSubmit={handleFormSubmit}>
             <Row>
-              <Col xs={12} md={8}>
+              <Col className="formElement">
                 <Form.Control
                   name="title"
                   value={createTitle}
@@ -103,7 +104,7 @@ function Create() {
                   placeholder="Title your card"
                 />
               </Col>
-              <Col xs={12} md={8}>
+              <Col className="formElement">
                 <Form.Control
                   name="link"
                   value={createLink}
@@ -113,7 +114,7 @@ function Create() {
                   placeholder="Link your Card"
                 />
               </Col>
-              <Col xs={12} md={8}>
+              <Col className="formElement">
                 <Form.Control
                   name="description"
                   value={createDescription}
@@ -123,16 +124,17 @@ function Create() {
                   placeholder="Describe your Card"
                 />
               </Col>
-              <Col xs={12} md={4}>
-                <Button type="submit" variant="success" size="lg">
+
+              <Col className="formElement">
+                <Button className="btn btn-primary" type="submit" variant="success" size="lg">
+
                   Submit Card
                 </Button>
               </Col>
             </Row>
-          </Form>
-        </Container>
-      </div>
-      {/* </Jumbotron> */}
+          </form>
+      </section>
+      {/* removed jumbotron */}
 
       <Container>
         <h2>
@@ -145,9 +147,6 @@ function Create() {
           {createdCards.map((card) => {
             return (
               <Card key={card.cardId} border="dark">
-                {/* {card.image ? (
-                                    <Card.Img src={card.image} alt={`The cover for ${card.title}`} variant='top' />
-                                ) : null} */}
                 <Card.Body>
                   <Card.Title>{card.title}</Card.Title>
                   <p className="small">Title: {card.title}</p>
@@ -157,7 +156,7 @@ function Create() {
                       disabled={savedCardIds?.some(
                         (savedCardId) => savedCardId === card.cardId
                       )}
-                      className="btn-block btn-info"
+                      className="btn btn-primary"
                       onClick={() => handleSaveCard(card.cardId)}
                     >
                       {savedCardIds?.some(
@@ -179,19 +178,3 @@ function Create() {
 }
 
 export default Create;
-
-
-  /* <section id="createCard">
-<h5>Create a card!</h5>
-<h2>Fill in the form to create a card</h2>
-
-<div className='container createContainer'>
-    <form>
-        <input type='text' name='Title' placeholder='The Title of Your card' required />
-        <input type='text' name='Title' placeholder='The link you would like on your card' required />
-        <textarea name='description' rows='7' placeholder='describe your card' required></textarea>
-        <button type='submit' className='btn btn-primary'>Submit your Card</button>
-    </form>
-</div>
-</section> */
-
