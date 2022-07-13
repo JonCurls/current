@@ -1,11 +1,11 @@
 const { Schema, model } = require("mongoose");
 
+// Mongoose Card schema { title, link, description }
 const cardSchema = new Schema(
   {
     title: {
       type: String,
       required: true,
-      // unique: true,
     },
     link: {
       type: String,
