@@ -63,12 +63,12 @@ function Create() {
     const cardToSave = createdCards.find((card) => card.cardId === cardId);
     console.log(cardToSave);
     // get token
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    // const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    if (!token) {
-      return false;
-    }
-    console.log(token);
+    // if (!token) {
+    //   return false;
+    // }
+    
     try {
       await saveCard({
         variables: { input: cardToSave },
@@ -85,6 +85,8 @@ function Create() {
     }
     console.log(handleSaveCard);
   };
+
+  console.log(createdCards);
   return (
     <>
 
@@ -151,7 +153,7 @@ function Create() {
                   <Card.Title>{card.title}</Card.Title>
                   <p className="small">Title: {card.title}</p>
                   <Card.Text>{card.description}</Card.Text>
-                  {Auth.loggedIn() && (
+                  {/* {Auth.loggedIn() && (
                     <Button
                       disabled={savedCardIds?.some(
                         (savedCardId) => savedCardId === card.cardId
@@ -165,7 +167,7 @@ function Create() {
                         ? "This card has already been saved!"
                         : "Save this Card!"}
                     </Button>
-                  )}
+                  )} */}
                 </Card.Body>
               </Card>
             );

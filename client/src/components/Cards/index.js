@@ -68,7 +68,7 @@ function Cards() {
             {/* changed CardColumns to a classname */}
             <div className="container cardContainer">
               {/* {id, link, title, description} */}
-              {userData?.cards?.map((card) => {
+              { userData?.cards?.map((card) => {
                 return (
                   <div className="cardObject" key={card._id} border="dark">
                     {/*ONLY USE IF WE USE IMAGES {card.image ? <Card.Img src={card.image} alt={`The cover for ${card.title}`} variant="top" /> : null} */}
@@ -91,6 +91,7 @@ function Cards() {
               })}
             </div>
           </div>
+
           {/* </CardColumns> */}
         </section>
       </Container>
