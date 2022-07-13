@@ -1,14 +1,9 @@
 .buttonContainer button {
-    margin-right: 2rem;
-    margin-top: 2rem;
-
-    
+  margin-right: 2rem;
+  margin-top: 2rem;
 }
 
-
 .buttonContainer {
-    display: grid;
-    justify-content: center;
-
-
+  display: grid;
+  justify-content: center;
 }

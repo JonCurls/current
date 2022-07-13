@@ -1,18 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@300&family=Staatliches&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@300&family=Staatliches&display=swap");
 body {
   background: var(--color-bg);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: var(--color-white);
-  line-height: 1.7;;
-  
+  line-height: 1.7;
+
   background-size: cover;
-  
-
-
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 * {
@@ -26,14 +23,15 @@ code {
 }
 :root {
   --color-bg: #000000;
+  --color-bg: #189ab4;
   --color-bg-variant: #181818;
   --color-bg-variant-light: #585858;
-  --color-primary: #2CCCC3;
-  --color-primary-variant: #5626C4;
+  --color-primary: #2cccc3;
+  --color-primary-variant: #5626c4;
   --color-white: #fff;
-  --color-light:	#00458B;
-  --color-card: #189AB4;
-  --color-card-gradient: #D4F1F4;
+  --color-light: #00458b;
+  --color-card: #189ab4;
+  --color-card-gradient: #d4f1f4;
   --smoothTrans: all 400ms ease;
   --container-width-lg: 75%;
   --container-width-md: 86%;
@@ -44,32 +42,37 @@ html {
   scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
-::placeholder{
-  color: var(--color-primary)
+::placeholder {
+  color: var(--color-primary);
 }
 
 /* Generic Styling */
-.container{
-  width:var(--container-width-lg);
+.container {
+  width: var(--container-width-lg);
   margin: 0 auto;
 }
 
-h1, h2, h3, h4, h5{
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-weight: 500;
 }
 
-h1{
+h1 {
   font-size: 2.5rem;
 }
 
-section{
+section {
   margin-top: 8rem;
   height: 100vh;
 }
-section > h2, section > h5 {
+section > h2,
+section > h5 {
   text-align: center;
   color: var(--color-primary);
 }
@@ -78,7 +81,7 @@ section > h2 {
   color: var(--color-primary);
   margin-bottom: 3rem;
 }
-.text-light{
+.text-light {
   color: var(--color-light);
 }
 
@@ -91,14 +94,14 @@ a:hover {
   color: var(--color-white);
 }
 
-.btn{
+.btn {
   width: max-content;
   display: inline-block;
   color: var(--color-primary-variant);
   padding: 0.75rem 1.2rem;
   border-radius: 0.4rem;
   cursor: pointer;
-  border:1px solid var(--color-primary-variant);
+  border: 1px solid var(--color-primary-variant);
   transition: var(--smoothTrans);
 }
 .btn:hover {
@@ -107,7 +110,7 @@ a:hover {
   border-color: transparent;
 }
 
-.btn-primary  {
+.btn-primary {
   background: var(--color-primary);
   color: var(--color-bg);
 }
@@ -129,13 +132,11 @@ img {
 @media screen and (max-width: 1024px) {
   .container {
     width: var(--container-width-md);
-
   }
   section {
     margin-top: 6rem;
     height: 150vh;
   }
-  
 }
 
 /* other devices (phones) */
@@ -143,12 +144,11 @@ img {
 @media screen and (max-width: 600px) {
   .container {
     width: var(--container-width-sm);
-
   }
   section > h2 {
     margin-top: 2rem;
   }
-  section{
+  section {
     margin-top: 8rem;
     height: 150vh;
   }
