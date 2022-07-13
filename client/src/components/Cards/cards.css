@@ -8,19 +8,24 @@
     display: grid;
     gap: 5rem;
     grid-template-columns: 1fr 1fr;
-    width: 50%;
 }
 .cardContainer>div {
-    background: var(--color-bg-variant);
-    border: 1px solid transparent;
-    border-radius: 2rem;
+    background-image: linear-gradient(var(--color-card), var(--color-card-gradient));
     padding: 2.4rem 5rem;
+    border-radius: 2rem;
+    border: 3px solid;
+    border-color: var(--color-primary-variant);
     transition: var(--smoothTrans);
-    width: 40%;
+}
+.cardContainer>div:hover {
+    background: var(--color-bg-variant);
+    border-color: var(--color-primary-variant);
+    border: 5px solid;
+    cursor: default;
 }
 .cardContainer>div h3 {
     border-bottom: 4px solid var(--color-primary-variant);
-    color: var(--color-primary);
+    color: var(--color-primary-variant);
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -48,6 +53,10 @@
     flex-direction: column;
     margin-top: 2rem;
     
+}
+.btn-card {
+   height: 75px;
+    width: 100px;
 }
   /* tablets */
   @media screen and (max-width: 1200px) {
