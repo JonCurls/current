@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Container, Button, Card } from "react-bootstrap";
-// removed CardColumn from bootstrap
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ME } from "../../utils/queries";
 import Auth from "../../utils/auth.js";
@@ -53,7 +52,7 @@ function Delete() {
 
   return (
     <>
-      <Container>
+      <Container className="addHeight">
         <section id="cards">
           <h2>
             {userData?.cards?.length
@@ -63,13 +62,11 @@ function Delete() {
               : "You have no saved cards!"}
           </h2>
           <div className="cardColumns">
-            {/* changed CardColumns to a classname */}
             <div className="container cardContainer">
               {/* {id, link, title, description} */}
               {userData?.cards?.map((card) => {
                 return (
                   <div className="cardObject" key={card._id} border="dark">
-                    {/*ONLY USE IF WE USE IMAGES {card.image ? <Card.Img src={card.image} alt={`The cover for ${card.title}`} variant="top" /> : null} */}
                     <Card.Body>
                       <h3 className="cardItem">{card.title}</h3>
                       <a href={card.link} className="btn btn-primary">
@@ -82,14 +79,12 @@ function Delete() {
                       >
                         <AiFillDelete />
                       </Button>
-                      {/*<h4 className="cardItem">{card.description}</h4>*/}
                     </Card.Body>
                   </div>
                 );
               })}
             </div>
           </div>
-          {/* </CardColumns> */}
         </section>
       </Container>
     </>
@@ -97,5 +92,3 @@ function Delete() {
 }
 
 export default Delete;
-
-

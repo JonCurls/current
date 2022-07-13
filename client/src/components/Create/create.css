@@ -31,14 +31,3 @@ input, textarea{
     resize: none;
     color: var(--color-white);
 }
-/*Other Devices (Tablet)*/
-@media screen and (max-width: 800px) {
-    .formElement{
-        width: 90%;
-    }
-}
-@media screen and (max-width: 800px) {
-    .formElement{
-        width: 75%;
-    }
-}

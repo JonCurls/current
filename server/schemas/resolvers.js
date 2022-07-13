@@ -28,13 +28,14 @@ const resolvers = {
     },
   },
   Mutation: {
+    // add a new user
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
 
       return { user, token };
     },
-
+    // add a new card
     addCard: async (parent, args, context) => {
       if (context.user) {
         const card = await Card.create({ ...args, email: context.user.email });
@@ -48,14 +49,14 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in");
     },
-
+    // delete a card
     deleteCard: async (parent, { cardId }, context) => {
       if (context.user) {
         return await Card.findByIdAndRemove({ _id: cardId });
       }
       throw new AuthenticationError("You need to be logged in");
     },
-
+    // login
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

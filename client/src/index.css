@@ -64,10 +64,12 @@ h1, h2, h3, h4, h5{
 h1{
   font-size: 2.5rem;
 }
-
+.addHeight{
+height: 150vh;
+}
 section{
   margin-top: 8rem;
-  height: 100vh;
+  
 }
 section > h2, section > h5 {
   text-align: center;
@@ -133,9 +135,11 @@ img {
   }
   section {
     margin-top: 6rem;
-    height: 150vh;
+
   }
-  
+  .formElement{
+    width: 90%;
+}
 }
 
 /* other devices (phones) */
@@ -150,6 +154,8 @@ img {
   }
   section{
     margin-top: 8rem;
-    height: 150vh;
   }
+  .formElement{
+    width: 75%;
+}
 }
