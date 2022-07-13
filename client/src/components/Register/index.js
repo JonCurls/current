@@ -66,6 +66,7 @@ const Register = () => {
                 <Form.Group>
                     <Form.Label htmlFor='email'>Email</Form.Label>
                     <Form.Control
+                        className="formElement"
                         type='email'
                         placeholder='Your Email Address'
                         name='email'
@@ -79,6 +80,7 @@ const Register = () => {
                 <Form.Group>
                     <Form.Label htmlFor='password'>Password</Form.Label>
                     <Form.Control
+                        className="formElement"
                         type='password'
                         placeholder='Your Password'
                         name='password'

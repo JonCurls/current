@@ -1,0 +1,11 @@
+/*Other Devices (Tablet)*/
+@media screen and (max-width: 1200px) {
+    .formElement{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 800px) {
+    .formElement{
+        width: 75%;
+    }
+}

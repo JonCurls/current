@@ -140,7 +140,7 @@ function Create() {
         <h2>
           {createdCards.length
             ? `Viewing ${createdCards.length} results:`
-            : "Create a card to begin"}
+            : ""}
         </h2>
         <div className="CardColumns">
           {/* changed CardColumns to a classname */}

@@ -70,6 +70,7 @@ function Login() {
         <Form.Group>
           <Form.Label htmlFor="email"> Email </Form.Label>
           <Form.Control
+            className="formElement"
             type="text"
             placeholder="Your Email"
             name="email"
@@ -85,6 +86,7 @@ function Login() {
         <Form.Group>
           <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Control
+            className="formElement"
             type="password"
             placeholder="Your Password"
             name="password"

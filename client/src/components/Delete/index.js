@@ -53,7 +53,7 @@ function Delete() {
 
   return (
     <>
-      <Container>
+      <Container class="addHeight">
         <section id="cards">
           <h2>
             {userData?.cards?.length
