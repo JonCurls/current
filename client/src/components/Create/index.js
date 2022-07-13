@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Container, Col, Form, Button, Card, Row } from "react-bootstrap";
-//removed jumbotron and cardcolumns from bootstrap
 import { useMutation } from "@apollo/client";
 import { SAVE_CARD } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 import { saveCardIds, getSavedCardIds } from "../../utils/localStorage";
 import "./create.css";
 
-//book > card , search > create
 //Create a new card
 function Create() {
   // create state for holding returned api data
@@ -21,7 +19,6 @@ function Create() {
   const [savedCardIds, setSavedCardIds] = useState(getSavedCardIds());
 
   // set up useEffect hook to save `savedCardIds` list to localStorage on component unmount
-  // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
     return () => saveCardIds(savedCardIds);
   });
@@ -87,55 +84,54 @@ function Create() {
   };
   return (
     <>
-
       <section id="create">
-        {/* removed jumbotron and bootstrap */}
+        <h1>Create your Cards!</h1>
+        <form onSubmit={handleFormSubmit}>
+          <Row>
+            <Col className="formElement">
+              <Form.Control
+                name="title"
+                value={createTitle}
+                onChange={(e) => setCreateTitle(e.target.value)}
+                type="text"
+                size="lg"
+                placeholder="Title your card"
+              />
+            </Col>
+            <Col className="formElement">
+              <Form.Control
+                name="link"
+                value={createLink}
+                onChange={(e) => setCreateLink(e.target.value)}
+                type="text"
+                size="lg"
+                placeholder="Link your Card"
+              />
+            </Col>
+            <Col className="formElement">
+              <Form.Control
+                name="description"
+                value={createDescription}
+                onChange={(e) => setCreateDescription(e.target.value)}
+                type="text"
+                size="lg"
+                placeholder="Describe your Card"
+              />
+            </Col>
 
-          <h1>Create your Cards!</h1>
-          <form onSubmit={handleFormSubmit}>
-            <Row>
-              <Col className="formElement">
-                <Form.Control
-                  name="title"
-                  value={createTitle}
-                  onChange={(e) => setCreateTitle(e.target.value)}
-                  type="text"
-                  size="lg"
-                  placeholder="Title your card"
-                />
-              </Col>
-              <Col className="formElement">
-                <Form.Control
-                  name="link"
-                  value={createLink}
-                  onChange={(e) => setCreateLink(e.target.value)}
-                  type="text"
-                  size="lg"
-                  placeholder="Link your Card"
-                />
-              </Col>
-              <Col className="formElement">
-                <Form.Control
-                  name="description"
-                  value={createDescription}
-                  onChange={(e) => setCreateDescription(e.target.value)}
-                  type="text"
-                  size="lg"
-                  placeholder="Describe your Card"
-                />
-              </Col>
-
-              <Col className="formElement">
-                <Button className="btn btn-primary" type="submit" variant="success" size="lg">
-
-                  Submit Card
-                </Button>
-              </Col>
-            </Row>
-          </form>
+            <Col className="formElement">
+              <Button
+                className="btn btn-primary"
+                type="submit"
+                variant="success"
+                size="lg"
+              >
+                Submit Card
+              </Button>
+            </Col>
+          </Row>
+        </form>
       </section>
-      {/* removed jumbotron */}
-
       <Container>
         <h2>
           {createdCards.length
@@ -143,7 +139,6 @@ function Create() {
             : "Create a card to begin"}
         </h2>
         <div className="CardColumns">
-          {/* changed CardColumns to a classname */}
           {createdCards.map((card) => {
             return (
               <Card key={card.cardId} border="dark">
@@ -171,7 +166,6 @@ function Create() {
             );
           })}
         </div>
-        {/* </CardColumns> */}
       </Container>
     </>
   );
