@@ -31,7 +31,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
 
   // Serve up static assets
   if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "public")));
+    app.use(express.static(path.join(__dirname, "../client/")));
   }
 
   app.get("/", (req, res) => {
