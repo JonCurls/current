@@ -4,7 +4,7 @@
 
 ## **Thumbnail**
 
-![ScreenShot]()
+![ScreenShot](./client/src/Assets/Images/thumbnail.PNG)
 
 ## **Description**
 
