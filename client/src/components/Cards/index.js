@@ -20,7 +20,7 @@ function Cards() {
 
   return (
     <>
-      <Container class="addHeight">
+      <Container className="addHeight">
         <section id="cards">
           <h2>
             {userData?.cards?.length
